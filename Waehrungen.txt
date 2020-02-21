@@ -1,0 +1,10 @@
+US-Dollar; USD; 1.0
+europaeischer Euro; euEu; 1.09825
+griechischer Euro; euEu; -1.09825
+britische Pfund; brP; 1.42021
+kanadische Dollar; kaD; 0.74994
+australischer Dollar; auD; 0.7426
+russischer Rubel; ruR; 0.01397
+ungarischer Forint; unF; 0.00355
+Polnischer Zloty; poZ; 0.25368
+tschechische Krone; tsK; 0.04058
