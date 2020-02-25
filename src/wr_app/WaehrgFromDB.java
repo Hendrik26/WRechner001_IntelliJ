@@ -15,14 +15,21 @@ public class WaehrgFromDB {
 
     WaehrgFromDB(String myKurzName, String myLangName, String basisWKurzName, String basisWLangName,
                  double myUmrechKursZuUSD, double umrechKursZuBasisW){
+        this.setNames(myKurzName, myLangName, basisWKurzName, basisWLangName);
+        this.setUmrechKurse(myUmrechKursZuUSD, umrechKursZuBasisW);
+        System.out.println("Neue Waehrung_DB erzeugt! ");
+    }
+
+    private void setUmrechKurse(double myUmrechKursZuUSD, double umrechKursZuBasisW) {
+        this.umrechKursZuUSD = myUmrechKursZuUSD;
+        this.umrechKursZuBasisW = umrechKursZuBasisW;
+    }
+
+    private void setNames(String myKurzName, String myLangName, String basisWKurzName, String basisWLangName) {
         this.kurzName = myKurzName;
         this.langName = myLangName;
         this.basisWKurzName = basisWKurzName;
         this.basisWLangName = basisWLangName;
-
-        this.umrechKursZuUSD = myUmrechKursZuUSD;
-        this.umrechKursZuBasisW = umrechKursZuBasisW;
-        System.out.println("Neue Waehrung_DB erzeugt! ");
     }
 
 
