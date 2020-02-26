@@ -9,6 +9,8 @@ public class WaehrgFromDB {
     private double umrechKursZuUSD = 1.0; //Ein $kurzName$ sind  $umrechKurs$ US-Dollar
     private double umrechKursZuBasisW = 1.0; //Ein $kurzName$ sind  $umrechKurs$ $basisWKurzName$
 
+
+
     private String intToStr(int myInt){//konveretiert Integer in Strings
         return Integer.toString(myInt);
     }
@@ -19,6 +21,8 @@ public class WaehrgFromDB {
         this.setUmrechKurse(myUmrechKursZuUSD, umrechKursZuBasisW);
         System.out.println("Neue Waehrung_DB erzeugt! ");
     }
+
+
 
     private void setUmrechKurse(double myUmrechKursZuUSD, double umrechKursZuBasisW) {
         this.umrechKursZuUSD = myUmrechKursZuUSD;

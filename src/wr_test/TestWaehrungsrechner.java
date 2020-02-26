@@ -1,6 +1,7 @@
 package wr_test;
 
 import wr_app.WInterface;
+import wr_app.WaehrgDBReader;
 import wr_app.Waehrungsrechner;
 
 public class TestWaehrungsrechner {
@@ -75,6 +76,8 @@ public class TestWaehrungsrechner {
 		wI.umrechnen();
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -137);
+
+		testWaehrgDBConnection();
 	}
 
 	private static void angenommeneGleich(double a, double b) {
@@ -85,5 +88,13 @@ public class TestWaehrungsrechner {
 		}
 		System.out.println("///--------------------------------------");
 		System.out.println("                              ");
+	}
+
+	private static void testWaehrgDBConnection(){
+		WaehrgDBReader wDBR = new WaehrgDBReader();
+		System.out.println("Begin Test WaehrgDBConnection!!! \r\n");
+		wDBR.testWDBConnection();
+		System.out.println("End Test WaehrgDBConnection!!! \r\n");
+		System.out.println("// -------------------------------------------------------- \r\n\r\n");
 	}
 }
