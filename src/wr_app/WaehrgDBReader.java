@@ -28,7 +28,7 @@ public class WaehrgDBReader {
 
         try {
             //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
+            // Class.forName(JDBC_DRIVER);
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
