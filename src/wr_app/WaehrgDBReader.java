@@ -6,7 +6,8 @@ import java.sql.Statement;
 import java.sql.*;
 
 public class WaehrgDBReader {
-    private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    // private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    private static final String JDBC_DRIVER = "com.mariadb.jdbc.Driver";
     // private static final String DB_URL_CONST = "jdbc:mysql://localhost/db_waehrgs_r";
     private static final String DB_URL_CONST = "jdbc:mariadb://localhost:3306/db_waehrgs_r";
     private static final String USER_CONST = "root";
@@ -62,6 +63,7 @@ public class WaehrgDBReader {
         }catch(ClassNotFoundException myCnfe){
             //Handle errors for JDBC
             myCnfe.printStackTrace();
+            // new catch()
 
         }catch(SQLException mySe){
             //Handle errors for JDBC
