@@ -1,24 +1,22 @@
 package wr_app;
 
-import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.*;
 
 public class WaehrgDBReader {
     private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DB_URL_CONST = "jdbc:mysql://localhost/db_waehrgs_r";
+    // private static final String DB_URL_CONST = "jdbc:mysql://localhost/db_waehrgs_r";
+    private static final String DB_URL_CONST = "jdbc:mariadb://localhost:3306/db_waehrgs_r";
     private static final String USER_CONST = "root";
     private static final String PW_CONST = "";
     private Connection conn = null;
     private Statement stmt = null;
+    private int myInt = -1;
 
     public WaehrgDBReader(){
+        this.myInt = -2;
         this.conn = null;
         this.stmt = null;
     }
@@ -28,7 +26,9 @@ public class WaehrgDBReader {
 
         try {
             //STEP 2: Register JDBC driver
-            // Class.forName(JDBC_DRIVER);
+            Class.forName(JDBC_DRIVER);
+
+
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
@@ -58,6 +58,10 @@ public class WaehrgDBReader {
                         + "WaehrgsName = " + myResultSet.getString("Waehrgs_Name")
                         +  "\r\n\r\n");
             }
+
+        }catch(ClassNotFoundException myCnfe){
+            //Handle errors for JDBC
+            myCnfe.printStackTrace();
 
         }catch(SQLException mySe){
             //Handle errors for JDBC
