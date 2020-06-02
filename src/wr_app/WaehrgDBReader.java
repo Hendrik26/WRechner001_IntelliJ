@@ -4,6 +4,21 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
+import java.sql.Driver;
+import java.sql.DriverManager;
+
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
+// import oracle.jdbc.pool.OracleDataSource;
+
+// import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
+
+import com.mysql.jdbc.Driver;
+import com.mariadb.jdbc.Driver;
+
+import mariadb-java-client-2.4.1.jar
 
 public class WaehrgDBReader {
     // private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -27,13 +42,15 @@ public class WaehrgDBReader {
 
         try {
             //STEP 2: Register JDBC driver
-            Class.forName(JDBC_DRIVER);
-
-
+            // Class.forName(JDBC_DRIVER);
+            Driver driver1 = new com.mysql.jdbc.Driver();
+            Driver driver2 = new com.mariadb.jdbc.Driver();
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL_CONST,USER_CONST,PW_CONST);
+
+            // MysqlDataSource mysqlDS = new MysqlDataSource();
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
