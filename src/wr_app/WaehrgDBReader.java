@@ -15,10 +15,10 @@ import javax.sql.DataSource;
 
 // import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
-import com.mysql.jdbc.Driver;
-import com.mariadb.jdbc.Driver;
+// import com.mysql.jdbc.Driver;
+// import com.mariadb.jdbc.Driver;
 
-import mariadb-java-client-2.4.1.jar
+// import mariadb-java-client-2.4.1.jar
 
 public class WaehrgDBReader {
     // private static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
@@ -43,8 +43,8 @@ public class WaehrgDBReader {
         try {
             //STEP 2: Register JDBC driver
             // Class.forName(JDBC_DRIVER);
-            Driver driver1 = new com.mysql.jdbc.Driver();
-            Driver driver2 = new com.mariadb.jdbc.Driver();
+            // Driver driver1 = new com.mysql.jdbc.Driver();
+            // Driver driver2 = new com.mariadb.jdbc.Driver();
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
