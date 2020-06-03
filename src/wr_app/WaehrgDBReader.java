@@ -44,31 +44,23 @@ public class WaehrgDBReader {
 
         }catch(ClassNotFoundException myCnfe){
             //Handle errors for JDBC
-            myCnfe.printStackTrace();
             ret = -2;
 
         }catch(SQLException mySe){
             //Handle errors for JDBC
-            mySe.printStackTrace();
             ret = -2;
 
         }catch(Exception myE){
             //Handle errors for Class.forName
-            myE.printStackTrace();
             ret = -2;
         }finally{
             //finally block used to close resources
-            try{
-                if(stmt!=null)
-                    stmt.close();
-            }catch(SQLException mySe2){
-                mySe2.printStackTrace();
-            }// nothing we can do
+
             try{
                 if(conn!=null)
                     conn.close();
             }catch(SQLException mySe3){
-                mySe3.printStackTrace();
+                ret = -3;
             }//end finally try
         }//end try
     System.out.println("Goodbye!");
