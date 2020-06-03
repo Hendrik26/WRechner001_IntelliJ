@@ -38,32 +38,6 @@ public class WaehrgDBReader {
             // conn = DriverManager.getConnection(DB_URL_CONST,USER_CONST,PW_CONST);
 
 
-            /*
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            System.out.println("Statement created ...");
-
-            String mySqlSelect, mySqlInsert;
-            mySqlSelect = "SELECT * FROM tbl_waehrgs_name";
-
-
-            System.out.println("SQL-Strings erzeugt");
-
-            ResultSet myResultSet = stmt.executeQuery(mySqlSelect);
-            //int i = stmt.executeUpdate(sqlInsert);
-
-            //STEP 5: Extract data from result set
-            System.out.println("-------------\r\n\r\n");
-            while(myResultSet.next()){
-                //Retrieve by column name
-
-                // myProduct.setProductID(myResultSet.getInt("product_ID"));////////
-                System.out.println("WaehrgsID = " + myResultSet.getInt("id")
-                        + "WaehrgsName = " + myResultSet.getString("Waehrgs_Name")
-                        +  "\r\n\r\n");
-
-            } */
         /* }catch(ClassNotFoundException myCnfe){
             //Handle errors for JDBC
             myCnfe.printStackTrace();
