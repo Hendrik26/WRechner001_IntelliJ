@@ -41,17 +41,7 @@ public class WaehrgDBReader {
                 ret = -1;
             }
 
-
-        }catch(ClassNotFoundException myCnfe){
-            //Handle errors for JDBC
-            ret = -2;
-
-        }catch(SQLException mySe){
-            //Handle errors for JDBC
-            ret = -2;
-
         }catch(Exception myE){
-            //Handle errors for Class.forName
             ret = -2;
         }finally{
             //finally block used to close resources
