@@ -94,7 +94,7 @@ public class TestWaehrungsrechner {
 		WaehrgDBReader wDBR = new WaehrgDBReader();
 		System.out.println("Begin Test WaehrgDBConnection!!! \r\n");
 		int tc = wDBR.testWDBConnection();
-		angenommeneGleich(tc, 333);
+		angenommeneGleich(tc, 1);
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");
 	}
