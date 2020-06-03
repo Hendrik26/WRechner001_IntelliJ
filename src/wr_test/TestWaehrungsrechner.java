@@ -81,10 +81,10 @@ public class TestWaehrungsrechner {
 	}
 
 	private static void angenommeneGleich(double a, double b) {
-		if (a - b < 0.0005 || a - b > -0.0005) {
+		if (Math.abs(a - b)  < 0.0005) {
 			System.out.println(a + " = " + b + " Test positiv");
 		} else {
-			System.out.println(a + " = " + b + " Test negativ");
+			System.out.println(a + " != " + b + " Test negativ");
 		}
 		System.out.println("///--------------------------------------");
 		System.out.println("                              ");
