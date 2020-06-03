@@ -27,32 +27,35 @@ public class WaehrgDBReader {
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
-    public void testWDBConnection(){
-
+    public int testWDBConnection(){
+        int ret = -11;
         try {
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             int i = -1;
+            conn = ConnectionFactoryMariaDb.createConnectionMariaDb();
+            if (conn != null) {
+                ret = 1;
+            } else {
+                ret = -1;
+            }
 
-            // conn = DriverManager.getConnection(DB_URL_CONST,USER_CONST,PW_CONST);
 
-
-        /* }catch(ClassNotFoundException myCnfe){
+        }catch(ClassNotFoundException myCnfe){
             //Handle errors for JDBC
             myCnfe.printStackTrace();
-            // new catch()
-            */
+            ret = -2;
 
-        /* }catch(SQLException mySe){
+        }catch(SQLException mySe){
             //Handle errors for JDBC
             mySe.printStackTrace();
-            */
-
+            ret = -2;
 
         }catch(Exception myE){
             //Handle errors for Class.forName
             myE.printStackTrace();
+            ret = -2;
         }finally{
             //finally block used to close resources
             try{
@@ -68,6 +71,7 @@ public class WaehrgDBReader {
                 mySe3.printStackTrace();
             }//end finally try
         }//end try
-   System.out.println("Goodbye!");
+    System.out.println("Goodbye!");
+    return ret;
     }
 }
