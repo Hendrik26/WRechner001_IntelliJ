@@ -76,11 +76,11 @@ public class WaehrgDBReader {
                         + "WaehrgsName = " + myResultSet.getString("Waehrgs_Name")
                         +  "\r\n\r\n");
             }
-
-        }catch(ClassNotFoundException myCnfe){
+        /* }catch(ClassNotFoundException myCnfe){
             //Handle errors for JDBC
             myCnfe.printStackTrace();
             // new catch()
+            */
 
         }catch(SQLException mySe){
             //Handle errors for JDBC
