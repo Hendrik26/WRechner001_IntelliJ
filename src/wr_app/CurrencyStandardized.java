@@ -1,6 +1,6 @@
 package wr_app; ///
 
-class Waehrg{
+class CurrencyStandardized {
  /* public static void main(String[] args){
     //System.out.println("Hello World");
        };*/
@@ -14,7 +14,7 @@ class Waehrg{
       return Integer.toString(myInt);
     }
 
-    Waehrg(String myKurzName, String myLangName, double myUmrechKurs){
+    CurrencyStandardized(String myKurzName, String myLangName, double myUmrechKurs){
         this.kurzName = myKurzName;
         this.langName = myLangName;
         this.umrechKurs = myUmrechKurs;

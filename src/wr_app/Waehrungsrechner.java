@@ -12,7 +12,7 @@ public class Waehrungsrechner implements WInterface {
     double betrag;
     double betragUmgerechnet;
     FxWaehrungsrechner fx;
-    List<Waehrg> waehrungsArrayList = new ArrayList<Waehrg>();
+    List<CurrencyStandardized> waehrungsArrayList = new ArrayList<CurrencyStandardized>();
 
 /////////////////////////////////////////////////////////////////////////////
 //Konstruktoren
@@ -43,25 +43,25 @@ public class Waehrungsrechner implements WInterface {
 ////////////////////////////////////////////////////////////////////////////
     private void setWaehrgList() {  //Setzen der Standardwaehrungen
 
-        Waehrg newWaehrung = new Waehrg("USD", "US-Dollar", 1.0);//0
+        CurrencyStandardized newWaehrung = new CurrencyStandardized("USD", "US-Dollar", 1.0);//0
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("euEu", "europaeischer Euro", 1.09825);//1
+        newWaehrung = new CurrencyStandardized("euEu", "europaeischer Euro", 1.09825);//1
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("euEu", "griechischer Euro", -1.09825);//2
+        newWaehrung = new CurrencyStandardized("euEu", "griechischer Euro", -1.09825);//2
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("brP", "britische Pfund", 1.42021);//3
+        newWaehrung = new CurrencyStandardized("brP", "britische Pfund", 1.42021);//3
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("kaD", "kanadische Dollar", 0.74994);//4
+        newWaehrung = new CurrencyStandardized("kaD", "kanadische Dollar", 0.74994);//4
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("auD", "australischer Dollar", 0.74260);//5
+        newWaehrung = new CurrencyStandardized("auD", "australischer Dollar", 0.74260);//5
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("ruR", "russischer Rubel", 0.01397);//6
+        newWaehrung = new CurrencyStandardized("ruR", "russischer Rubel", 0.01397);//6
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("unF", "ungarischer Forint", 0.00355);//7
+        newWaehrung = new CurrencyStandardized("unF", "ungarischer Forint", 0.00355);//7
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("poZ", "Polnischer Zloty", 0.25368);//8
+        newWaehrung = new CurrencyStandardized("poZ", "Polnischer Zloty", 0.25368);//8
         waehrungsArrayList.add(newWaehrung);
-        newWaehrung = new Waehrg("tsK", "tschechische Krone", 0.04058);//9
+        newWaehrung = new CurrencyStandardized("tsK", "tschechische Krone", 0.04058);//9
         waehrungsArrayList.add(newWaehrung);
         System.out.println("Alle Standard-Waehrung erzeugt! ");
 
@@ -78,7 +78,7 @@ public class Waehrungsrechner implements WInterface {
             // wird diese überschrieben
             FileWriter writer = new FileWriter(waehrungFile);
 
-            for (Waehrg wObj : waehrungsArrayList) { //entspricht "foreach" (VB, C#)
+            for (CurrencyStandardized wObj : waehrungsArrayList) { //entspricht "foreach" (VB, C#)
                 String zeile = wObj.getLangName() + "; ";
                 zeile += wObj.getKurzName() + "; ";
                 zeile += new Double(wObj.getUmrechKurs()).toString();
@@ -112,7 +112,7 @@ public class Waehrungsrechner implements WInterface {
                 String langName = parts[0].trim();
                 String kurzName = parts[1].trim();
                 Double umrechKurs = Double.parseDouble(parts[2].trim());
-                Waehrg newWaehrung = new Waehrg(kurzName, langName, umrechKurs);
+                CurrencyStandardized newWaehrung = new CurrencyStandardized(kurzName, langName, umrechKurs);
                 waehrungsArrayList.add(newWaehrung);
             }
             System.out.println("Alle Standard-Waehrung aus Datei gelesen! ");
@@ -136,20 +136,20 @@ public class Waehrungsrechner implements WInterface {
     }
 
     public void addWaehrgToList(String myKurzName, String myLangName, double myUmrechKurs) {
-        Waehrg newWaehrung = new Waehrg(myKurzName, myLangName, myUmrechKurs);
+        CurrencyStandardized newWaehrung = new CurrencyStandardized(myKurzName, myLangName, myUmrechKurs);
         waehrungsArrayList.add(newWaehrung);
     }
 
     public List<String> getWaehrungsNameList() {
         List<String> waehrungsListe = new ArrayList<String>();
-        for (Waehrg wObj : waehrungsArrayList) {
+        for (CurrencyStandardized wObj : waehrungsArrayList) {
             waehrungsListe.add(wObj.getLangName());
         }
         return waehrungsListe;
     }
 
     public void umrechnen() {
-        Waehrg tempWaehrg;
+        CurrencyStandardized tempWaehrg;
         double usDZwischen;
 
         System.out.println("Methode umrechnen: Waehrungen gesetzt! ");
