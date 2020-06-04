@@ -1,6 +1,6 @@
 package wr_app;
 
-public class WaehrgFromDB {
+public class CurrencyLikeDB {
     private String kurzName = "";
     private String langName = "";
     private String basisWKurzName = "";
@@ -15,8 +15,8 @@ public class WaehrgFromDB {
         return Integer.toString(myInt);
     }
 
-    WaehrgFromDB(String myKurzName, String myLangName, String basisWKurzName, String basisWLangName,
-                 double myUmrechKursZuUSD, double umrechKursZuBasisW){
+    CurrencyLikeDB(String myKurzName, String myLangName, String basisWKurzName, String basisWLangName,
+                   double myUmrechKursZuUSD, double umrechKursZuBasisW){
         this.setNames(myKurzName, myLangName, basisWKurzName, basisWLangName);
         this.setUmrechKurse(myUmrechKursZuUSD, umrechKursZuBasisW);
         System.out.println("Neue Waehrung_DB erzeugt! ");
