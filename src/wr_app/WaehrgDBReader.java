@@ -1,24 +1,17 @@
 package wr_app;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
-import java.sql.Driver;
-import java.sql.DriverManager;
-
-import java.util.Properties;
-
-import javax.sql.DataSource;
 
 public class WaehrgDBReader {
-    private Connection conn = null;
+    private Connection connTestMaria = null;
     private Statement stmt = null;
     private int myInt = -1;
 
     public WaehrgDBReader(){
         this.myInt = -2;
-        this.conn = null;
+        this.connTestMaria = null;
         this.stmt = null;
     }
 
@@ -30,8 +23,8 @@ public class WaehrgDBReader {
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             int i = -1;
-            conn = ConnectionFactoryMariaDb.createConnectionMariaDb();
-            if (conn != null) {
+            connTestMaria = ConnectionFactoryMariaDb.createConnectionMariaDb();
+            if (connTestMaria != null) {
                 ret = 1;
             } else {
                 ret = -1;
@@ -43,8 +36,8 @@ public class WaehrgDBReader {
             //finally block used to close resources
 
             try{
-                if(conn!=null)
-                    conn.close();
+                if(connTestMaria !=null)
+                    connTestMaria.close();
             }catch(SQLException mySe3){
                 ret = -3;
             }//end finally try
