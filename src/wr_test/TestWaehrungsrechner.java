@@ -4,6 +4,8 @@ import wr_app.WInterface;
 import wr_app.WaehrgDBReader;
 import wr_app.Waehrungsrechner;
 
+import javax.swing.*;
+
 public class TestWaehrungsrechner {
 
 	public static void main(String args[]) {
@@ -90,7 +92,13 @@ public class TestWaehrungsrechner {
 		System.out.println("                              ");
 	}
 
+	private static void infoBox(String infoMessage, String titleBar)
+	{
+		JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+	}
+
 	private static void testWaehrgDBConnection(){
+		infoBox("Test-InfoMessage","TestTitleBar");
 		WaehrgDBReader wDBR = new WaehrgDBReader();
 		System.out.println("Begin Test WaehrgDBConnection!!! \r\n");
 
