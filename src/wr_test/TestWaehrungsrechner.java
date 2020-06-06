@@ -92,13 +92,13 @@ public class TestWaehrungsrechner {
 		System.out.println("                              ");
 	}
 
-	private static void infoBox(String infoMessage, String titleBar)
+	private static void infoBox(String titleBar, String infoMessage)
 	{
 		JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private static void testWaehrgDBConnection(){
-		infoBox("Test-InfoMessage","TestTitleBar");
+		infoBox("TestTitleBar", "Test-InfoMessage");
 		WaehrgDBReader wDBR = new WaehrgDBReader();
 		System.out.println("Begin Test WaehrgDBConnection!!! \r\n");
 
