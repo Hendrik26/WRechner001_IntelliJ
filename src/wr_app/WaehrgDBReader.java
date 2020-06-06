@@ -16,7 +16,7 @@ public class WaehrgDBReader {
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
-    public int testWDBConnection(){
+    public static int testWDBConnection(){
         int ret = -11;
         Connection connTestMaria = null;
         try {
