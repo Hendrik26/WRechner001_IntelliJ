@@ -94,7 +94,8 @@ public class TestWaehrungsrechner {
 
 	private static void infoBox(String titleBar, String infoMessage)
 	{
-		JOptionPane.showMessageDialog(null, infoMessage, "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+		JOptionPane.showMessageDialog(null, infoMessage,
+				"InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 
 	private static void testWaehrgDBConnection(){
