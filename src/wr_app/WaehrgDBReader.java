@@ -5,19 +5,20 @@ import java.sql.Statement;
 import java.sql.*;
 
 public class WaehrgDBReader {
-    private Connection connTestMaria = null;
+    private Connection connMaria = null;
     private Statement stmt = null;
     private int myInt = -1;
 
     public WaehrgDBReader(){
         this.myInt = -2;
-        this.connTestMaria = null;
+        this.connMaria = null;
         this.stmt = null;
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
     public int testWDBConnection(){
         int ret = -11;
+        Connection connTestMaria = null;
         try {
 
             //STEP 3: Open a connection
