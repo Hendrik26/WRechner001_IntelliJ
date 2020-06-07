@@ -12,6 +12,12 @@ public class WaehrgDBReader {
 
     public WaehrgDBReader(){
         this.myInt = -2;
+        if (testWDBConnection() == 1){
+            this.firstConnect();
+        }
+    }
+
+    private void firstConnect() {
         this.connMaria = null;
         this.stmt = null;
     }

@@ -105,6 +105,7 @@ public class TestWaehrungsrechner {
 
 		int tc = WaehrgDBReader.testWDBConnection();
 		angenommeneGleich(tc, 1);
+
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");
 	}
