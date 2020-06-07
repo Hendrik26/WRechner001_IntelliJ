@@ -98,13 +98,30 @@ public class TestWaehrungsrechner {
 				"InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
 	}
 
+	private static boolean objectInstanceExists(Object obj){
+		String name = "Object-Instance of " + obj.getClass().getName() + " ";
+		if (obj != null){
+			System.out.println(name + "exists!!!");
+			System.out.println("-------------------------------\r\n\r\n");
+			return true;
+		} else {
+			System.out.println(name + "not exists!!!");
+			System.out.println("--------------------------------\r\n\r\n");
+			return false;
+		}
+	}
+
 	private static void testWaehrgDBConnection(){
 		infoBox("TestTitleBar", "Test-InfoMessage");
-		WaehrgDBReader wDBR = new WaehrgDBReader();
+
 		System.out.println("Begin Test WaehrgDBConnection!!! \r\n");
 
 		int tc = WaehrgDBReader.testWDBConnection();
 		angenommeneGleich(tc, 1);
+
+		System.out.println("Test constructor WaehrgDBReader!!! \r\n");
+		WaehrgDBReader wDBR = new WaehrgDBReader();
+		objectInstanceExists(wDBR);
 
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");
