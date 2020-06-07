@@ -99,7 +99,9 @@ public class TestWaehrungsrechner {
 	}
 
 	private static boolean objectInstanceExists(Object obj){
-		String name = "Object-Instance of " + obj.getClass().getName() + " ";
+		String name = String.format("Object-Instance of %s ",
+				obj.getClass().getName());
+		// parameterized String
 		if (obj != null){
 			System.out.println(name + "exists!!!");
 			System.out.println("-------------------------------\r\n\r\n");
