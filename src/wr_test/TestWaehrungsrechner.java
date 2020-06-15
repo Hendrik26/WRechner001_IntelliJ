@@ -124,6 +124,8 @@ public class TestWaehrungsrechner {
 		System.out.println("Test constructor WaehrgDBReader!!! \r\n");
 		WaehrgDBReader wDBR = new WaehrgDBReader();
 		objectInstanceExists(wDBR);
+		wDBR.closeConnection();
+		wDBR.reConnect();
 
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");

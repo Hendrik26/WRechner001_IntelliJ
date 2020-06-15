@@ -17,9 +17,110 @@ public class WaehrgDBReader {
         }
     }
 
+    // public /*WaehrgFromDB[]*/ void getFromDB(){
+    private void getCurrenciesStandardizedFromDB(){
+        System.out.println("Begin connecting to DB!!!\r\n");
+        System.out.println("----------------------------\r\n\r\n");
+
+        Connection connMaria = null;
+        Statement stmt = null;
+        try{
+
+
+
+            //STEP 4: Execute a query
+            System.out.println("Creating statement...");
+            stmt = connMaria.createStatement();
+            String sql;
+            sql = "SELECT id, Waehrgs_Name FROM tbl_waehrgs_name";
+            ResultSet rs = stmt.executeQuery(sql);
+
+            //STEP 5: Extract data from result set
+            while(rs.next()){
+                //Retrieve by column name
+                int id  = rs.getInt("id");
+                String waehrgsName = rs.getString("Waehrgs_Name");
+
+                //Display values
+                String row = "ID: " + id + "; WaehrungsName: " + waehrgsName + ";\r\n";
+                System.out.print(row);
+
+            }
+            //STEP 6: Clean-up environment
+            rs.close();
+            stmt.close();
+            connMaria.close();
+        }catch(SQLException se){
+            //Handle errors for JDBC
+            se.printStackTrace();
+        }catch(Exception e){
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        }finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    stmt.close();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            //end finally try
+        }//end try
+        System.out.println("Goodbye!!!!!!!!!!!!");
+    }
+
     private void firstConnect() {
-        this.connMaria = null;
-        this.stmt = null;
+        // this.connMaria = null;
+        // this.stmt = null;
+        try {
+            //STEP 3Maria: Open a connection
+            System.out.println("First Connecting to database MariaDB ...");
+            this.connMaria = ConnectionFactoryMariaDb.createConnectionMariaDb();
+            System.out.println("First Connected to database MariaDB ...");
+        } catch (Exception e) {
+            infoBox("Exception first connecting to MariaDB!",
+                    "Exception-Message === "
+                            + e.getMessage()
+                            + "!!!\r\n\r\n");
+            System.out.println("Printing Exception.StackTrace ...");
+            e.printStackTrace();
+            System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
+        }
+    }
+
+    public void reConnect() {
+        try {
+            //STEP 3Maria: Open a connection
+            System.out.println("ReConnecting to database MariaDB ...");
+            this.connMaria = ConnectionFactoryMariaDb.createConnectionMariaDb();
+            System.out.println("ReConnected to database MariaDB ...");
+        } catch (Exception e) {
+            infoBox("Exception reConnecting to MariaDB!",
+                    "Exception-Message === "
+                            + e.getMessage()
+                            + "!!!\r\n\r\n");
+            System.out.println("Printing Exception.StackTrace ...");
+            e.printStackTrace();
+            System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
+        }
+    }
+
+    public void closeConnection() {
+        try {
+            //STEP XY1Maria: Close the current connection
+            System.out.println("Closing Connection to database MariaDB ...");
+            if(this.connMaria != null)
+                this.connMaria.close();
+            System.out.println("Closed Connection to database MariaDB ...");
+        } catch (Exception e) {
+            infoBox("Exception closing connection to MariaDB!",
+                    "Exception-Message === "
+                            + e.getMessage()
+                            + "!!!\r\n\r\n");
+            System.out.println("Printing Exception.StackTrace ...");
+            e.printStackTrace();
+            System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
+        }
     }
 
     private static void infoBox(String titleBar, String infoMessage)
@@ -28,26 +129,25 @@ public class WaehrgDBReader {
                 "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // public /*WaehrgFromDB[]*/ void getFromDB(){
     public static int testWDBConnection(){
         int ret = -11;
         Connection connTestMaria = null;
         try {
 
             //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
+            System.out.println("Test-Connecting to database...");
             int i = -1;
             connTestMaria = ConnectionFactoryMariaDb.createConnectionMariaDb();
             if (connTestMaria != null) {
                 ret = 1;
             } else {
-                infoBox("Failure DB-Connection",
+                infoBox("Failure Test-DB-Connection",
                         "Test-Connecting to MariaDB failed!!!");
                 ret = -1;
             }
 
         }catch(Exception myE){
-            infoBox("Failure DB-Connection",
+            infoBox("Failure Test- DB-Connection",
                     "Test-Connecting to MariaDB failed!\r\n"
                             + "Exception was thrown while connecting!!!");
             ret = -2;
@@ -58,7 +158,7 @@ public class WaehrgDBReader {
                 if(connTestMaria !=null)
                     connTestMaria.close();
             }catch(SQLException mySe3){
-                infoBox("Failure DB-Connection",
+                infoBox("Failure Test-DB-Connection",
                         "Closing Test-Connection to MariaDB failed!\r\n"
                                 + "Exception was thrown while closing!!!");
                 ret = -3;
