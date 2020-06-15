@@ -18,7 +18,7 @@ public class WaehrgDBReader {
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
-    private void getCurrenciesStandardizedFromDB(){
+    public void getCurrenciesStandardizedFromDB(){
         System.out.println("Begin connecting to DB!!!\r\n");
         System.out.println("----------------------------\r\n\r\n");
 
