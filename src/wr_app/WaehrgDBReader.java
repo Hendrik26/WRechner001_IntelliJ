@@ -7,7 +7,7 @@ import java.sql.*;
 
 public class WaehrgDBReader {
     private Connection connMaria = null;
-    private Statement stmt = null;
+    // private Statement stmt = null;
     private int myInt = -1;
 
     public WaehrgDBReader(){
