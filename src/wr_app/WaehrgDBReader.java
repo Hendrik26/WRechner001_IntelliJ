@@ -19,10 +19,10 @@ public class WaehrgDBReader {
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
     public void getCurrenciesStandardizedFromDB(){
-        System.out.println("Begin connecting to DB!!!\r\n");
-        System.out.println("----------------------------\r\n\r\n");
+        // System.out.println("Begin connecting to DB!!!\r\n");
+        // System.out.println("----------------------------\r\n\r\n");
 
-        Connection connMaria = null;
+        // Connection connMaria = null;
         Statement stmt = null;
         try{
 
@@ -30,7 +30,7 @@ public class WaehrgDBReader {
 
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
-            stmt = connMaria.createStatement();
+            stmt = this.connMaria.createStatement();
             String sql;
             sql = "SELECT id, Waehrgs_Name FROM tbl_waehrgs_name";
             ResultSet rs = stmt.executeQuery(sql);
@@ -49,7 +49,7 @@ public class WaehrgDBReader {
             //STEP 6: Clean-up environment
             rs.close();
             stmt.close();
-            connMaria.close();
+            // connMaria.close();
         }catch(SQLException se){
             //Handle errors for JDBC
             se.printStackTrace();
