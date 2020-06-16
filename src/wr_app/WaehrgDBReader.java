@@ -7,7 +7,6 @@ import java.sql.*;
 
 public class WaehrgDBReader {
     private Connection connMaria = null;
-    // private Statement stmt = null;
     private int myInt = -1;
 
     public WaehrgDBReader(){
@@ -19,15 +18,8 @@ public class WaehrgDBReader {
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
     public void getCurrenciesStandardizedFromDB(){
-        // System.out.println("Begin connecting to DB!!!\r\n");
-        // System.out.println("----------------------------\r\n\r\n");
-
-        // Connection connMaria = null;
         Statement stmt = null;
         try{
-
-
-
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = this.connMaria.createStatement();
@@ -49,12 +41,9 @@ public class WaehrgDBReader {
             //STEP 6: Clean-up environment
             rs.close();
             stmt.close();
-            // connMaria.close();
         }catch(SQLException se){
-            //Handle errors for JDBC
             se.printStackTrace();
         }catch(Exception e){
-            //Handle errors for Class.forName
             e.printStackTrace();
         }finally{
             //finally block used to close resources
@@ -70,8 +59,6 @@ public class WaehrgDBReader {
     }
 
     private void firstConnect() {
-        // this.connMaria = null;
-        // this.stmt = null;
         try {
             //STEP 3Maria: Open a connection
             System.out.println("First Connecting to database MariaDB ...");
