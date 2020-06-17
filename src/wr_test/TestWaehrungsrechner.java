@@ -123,9 +123,12 @@ public class TestWaehrungsrechner {
 		infoBox("TestHtmlString", testHtmlString);
 		System.out.println("Tested HTML!!!");
 		System.out.println("Testing Text-formatting!!!");
-		System.out.print("\033[0;1m" + "This text is Bold!!!");
+		// System.out.print("\033[0;1m" + "This text is Bold!!!");
+		// System.out.println("\033[0;1m" + "This text is Bold!!!");
+		System.out.println("\033[31;1;4mThis text is red, bold " +
+				"and underlined. \033[0m");
 		System.out.println("Tested Text-formatting!!!");
-		System.out.println("--------------------------\rßn\r\n");
+		System.out.println("--------------------------\r\n\r\n");
 	}
 
 	private static void testWaehrgDBConnection(){
