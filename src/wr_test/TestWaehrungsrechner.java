@@ -79,6 +79,7 @@ public class TestWaehrungsrechner {
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -137);
 
+		testHtml();
 		testWaehrgDBConnection();
 	}
 
@@ -111,6 +112,20 @@ public class TestWaehrungsrechner {
 			System.out.println("--------------------------------\r\n\r\n");
 			return false;
 		}
+	}
+
+	private static void testHtml(){
+		System.out.println("\r\n\r\n-------------------------------------");
+		System.out.println("Testing HTML!!!");
+		String testHtmlString = "<p style=\"color:red;\"><b>This is a" +
+				" red bold HtmlString!!!</b></p>";
+		System.out.println(testHtmlString);
+		infoBox("TestHtmlString", testHtmlString);
+		System.out.println("Tested HTML!!!");
+		System.out.println("Testing Text-formatting!!!");
+		System.out.print("\033[0;1m" + "This text is Bold!!!");
+		System.out.println("Tested Text-formatting!!!");
+		System.out.println("--------------------------\rßn\r\n");
 	}
 
 	private static void testWaehrgDBConnection(){

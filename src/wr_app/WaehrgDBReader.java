@@ -11,9 +11,9 @@ public class WaehrgDBReader {
 
     public WaehrgDBReader(){
         this.myInt = -2;
-        if (testWDBConnection() == 1){
+        // if (testWDBConnection() == 1){
             this.firstConnect();
-        }
+        // }
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
@@ -66,9 +66,9 @@ public class WaehrgDBReader {
             System.out.println("First Connected to database MariaDB ...");
         } catch (Exception e) {
             infoBox("Exception first connecting to MariaDB!",
-                    "Exception-Message === "
+                    "Exception-Message === \""
                             + e.getMessage()
-                            + "!!!\r\n\r\n");
+                            + "\" !!!\r\n\r\n");
             System.out.println("Printing Exception.StackTrace ...");
             e.printStackTrace();
             System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
