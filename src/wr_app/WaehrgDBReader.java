@@ -66,9 +66,7 @@ public class WaehrgDBReader {
             System.out.println("First Connected to database MariaDB ...");
         } catch (Exception e) {
             infoBox("Exception first connecting to MariaDB!",
-                    "Exception-Message === \""
-                            + e.getMessage()
-                            + "\" !!!\r\n\r\n");
+                    exceptionText(e));
             System.out.println("Printing Exception.StackTrace ...");
             e.printStackTrace();
             System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
@@ -114,6 +112,20 @@ public class WaehrgDBReader {
     {
         JOptionPane.showMessageDialog(null, infoMessage,
                 "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private String redBold(String inText){
+        String formatHtmlString = "<HTML><p style=\"color:red;\"><b>%s</b></p></HTML>";
+        return String.format(formatHtmlString, inText);
+    }
+
+    private String exceptionText(Exception e){
+        String testHtmlString = "<HTML><p style=\"color:red;\"><b>This is a" +
+                " red\r\n\r\n bold HtmlString!!!</b></p></HTML>";
+        /* return "Exception-Message === \""
+                + redBold(e.getMessage())
+                + "\" !!!\r\n\r\n"; */
+        return "HTML:\r\n" + testHtmlString;
     }
 
     public static int testWDBConnection(){
