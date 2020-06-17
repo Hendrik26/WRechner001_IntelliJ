@@ -120,12 +120,10 @@ public class WaehrgDBReader {
     }
 
     private String exceptionText(Exception e){
-        String testHtmlString = "<HTML><p style=\"color:red;\"><b>This is a" +
-                " red\r\n\r\n bold HtmlString!!!</b></p></HTML>";
-        /* return "Exception-Message === \""
-                + redBold(e.getMessage())
-                + "\" !!!\r\n\r\n"; */
-        return "HTML:\r\n" + testHtmlString;
+         return redBold("Exception-Message === \"")
+                + e.getMessage()
+                + redBold("\" !!!")
+                 + "\r\n\r\n";
     }
 
     public static int testWDBConnection(){
