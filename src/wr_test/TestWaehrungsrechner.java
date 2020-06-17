@@ -117,16 +117,20 @@ public class TestWaehrungsrechner {
 	private static void testHtml(){
 		System.out.println("\r\n\r\n-------------------------------------");
 		System.out.println("Testing HTML!!!");
-		String testHtmlString = "<p style=\"color:red;\"><b>This is a" +
-				" red bold HtmlString!!!</b></p>";
+		String testHtmlString = "<HTML><p style=\"color:red;\"><b>This is a" +
+				" red bold HtmlString!!!</b></p></HTML>";
 		System.out.println(testHtmlString);
 		infoBox("TestHtmlString", testHtmlString);
+		infoBox("TestHtmlString", "HTML:\r\n" + testHtmlString);
+		// JEditorPane ed1=new JEditorPane("text/html", testHtmlString);
 		System.out.println("Tested HTML!!!");
 		System.out.println("Testing Text-formatting!!!");
 		// System.out.print("\033[0;1m" + "This text is Bold!!!");
 		// System.out.println("\033[0;1m" + "This text is Bold!!!");
-		System.out.println("\033[31;1;4mThis text is red, bold " +
-				"and underlined. \033[0m");
+		String testFormattedString = "\033[31;1;4mThis text is red, bold " +
+				"and underlined. \033[0m";
+		System.out.println(testFormattedString);
+		infoBox("testFormattedString", testFormattedString);
 		System.out.println("Tested Text-formatting!!!");
 		System.out.println("--------------------------\r\n\r\n");
 	}
