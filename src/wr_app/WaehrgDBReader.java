@@ -142,9 +142,7 @@ public class WaehrgDBReader {
                 + "\r\n\r\n"
                 + greenBold("Exception-StackTrace === ")
                 + "\r\n"
-                // + e.getStackTrace().toString()
                 + stackTraceString
-                // + "\r\n\r\n"
                 + greenBold("!!!!!!!!!!!!!!!!!!!!!");
     }
 
