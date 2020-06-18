@@ -81,7 +81,7 @@ public class WaehrgDBReader {
             System.out.println("ReConnected to database MariaDB ...");
         } catch (Exception e) {
             infoBox("Exception reConnecting to MariaDB!",
-                    e);
+                    exceptionText(e));
             System.out.println("Printing Exception.StackTrace ...");
             e.printStackTrace();
             System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
@@ -97,9 +97,7 @@ public class WaehrgDBReader {
             System.out.println("Closed Connection to database MariaDB ...");
         } catch (Exception e) {
             infoBox("Exception closing connection to MariaDB!",
-                    "Exception-Message === "
-                            + e.getMessage()
-                            + "!!!\r\n\r\n");
+                    exceptionText(e));
             System.out.println("Printing Exception.StackTrace ...");
             e.printStackTrace();
             System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
