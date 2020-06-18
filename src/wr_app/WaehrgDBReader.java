@@ -136,16 +136,16 @@ public class WaehrgDBReader {
          }
          return redBold("Exception-Message === \"")
                 + e.getMessage()
-                + redBold("\" !!!")
+                + redBold("\" !!!!!!!!!!!!!!!!!!!!!")
                 + "\r\n\r\n"
                 + blueBold("-------------------------------------------")
                 + "\r\n\r\n"
                 + greenBold("Exception-StackTrace === ")
-                + "\r\n\r\n"
+                + "\r\n"
                 // + e.getStackTrace().toString()
                 + stackTraceString
-                + "\r\n\r\n"
-                + greenBold("!!!");
+                // + "\r\n\r\n"
+                + greenBold("!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public static int testWDBConnection(){
