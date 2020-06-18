@@ -81,9 +81,7 @@ public class WaehrgDBReader {
             System.out.println("ReConnected to database MariaDB ...");
         } catch (Exception e) {
             infoBox("Exception reConnecting to MariaDB!",
-                    "Exception-Message === "
-                            + e.getMessage()
-                            + "!!!\r\n\r\n");
+                    e);
             System.out.println("Printing Exception.StackTrace ...");
             e.printStackTrace();
             System.out.println("Printed Exception.StackTrace ...\r\n\r\n");
@@ -108,7 +106,7 @@ public class WaehrgDBReader {
         }
     }
 
-    private static void infoBox(String titleBar, String infoMessage)
+    private static void infoBox(String titleBar, Object infoMessage)
     {
         JOptionPane.showMessageDialog(null, infoMessage,
                 "InfoBox: " + titleBar, JOptionPane.INFORMATION_MESSAGE);
@@ -135,6 +133,7 @@ public class WaehrgDBReader {
              stackTraceString += s + " \r\n";
          }
          return redBold("Exception-Message === \"")
+                + " \r\n"
                 + e.getMessage()
                 + redBold("\" !!!!!!!!!!!!!!!!!!!!!")
                 + "\r\n\r\n"
