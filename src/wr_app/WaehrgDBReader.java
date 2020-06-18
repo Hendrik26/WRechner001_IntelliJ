@@ -119,11 +119,33 @@ public class WaehrgDBReader {
         return String.format(formatHtmlString, inText);
     }
 
+    private String greenBold(String inText){
+        String formatHtmlString = "<HTML><p style=\"color:green;\"><b>%s</b></p></HTML>";
+        return String.format(formatHtmlString, inText);
+    }
+
+    private String blueBold(String inText){
+        String formatHtmlString = "<HTML><p style=\"color:blue;\"><b>%s</b></p></HTML>";
+        return String.format(formatHtmlString, inText);
+    }
+
     private String exceptionText(Exception e){
+         String stackTraceString = "";
+         for (StackTraceElement s : e.getStackTrace()){
+             stackTraceString += s + " \r\n";
+         }
          return redBold("Exception-Message === \"")
                 + e.getMessage()
                 + redBold("\" !!!")
-                 + "\r\n\r\n";
+                + "\r\n\r\n"
+                + blueBold("-------------------------------------------")
+                + "\r\n\r\n"
+                + greenBold("Exception-StackTrace === ")
+                + "\r\n\r\n"
+                // + e.getStackTrace().toString()
+                + stackTraceString
+                + "\r\n\r\n"
+                + greenBold("!!!");
     }
 
     public static int testWDBConnection(){
