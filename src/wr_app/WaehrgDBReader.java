@@ -24,17 +24,31 @@ public class WaehrgDBReader {
             System.out.println("Creating statement...");
             stmt = this.connMaria.createStatement();
             String sql;
-            sql = "SELECT id, Waehrgs_Name FROM tbl_waehrgs_name";
+            // sql = "SELECT id, Waehrgs_Name FROM tbl_waehrgs_name";
+            sql = "SELECT Langname, Kurzname, Umrechnungskurs " +
+                    "FROM v_wname_rek_umrechkurs_ext";
             ResultSet rs = stmt.executeQuery(sql);
 
             //STEP 5: Extract data from result set
             while(rs.next()){
                 //Retrieve by column name
-                int id  = rs.getInt("id");
-                String waehrgsName = rs.getString("Waehrgs_Name");
+                CurrencyStandardized cs = new CurrencyStandardized(
+                        rs.getString("Kurzname"),
+                        rs.getString("Langname"),
+                        rs.getDouble("Umrechnungskurs")
+                );
+                //// ------------------
+                // int id  = rs.getInt("id");
+                // String waehrgsName = rs.getString("Waehrgs_Name");
 
                 //Display values
-                String row = "ID: " + id + "; WaehrungsName: " + waehrgsName + ";\r\n";
+                // String row = "ID: " + id + "; WaehrungsName: "
+                        // + waehrgsName + ";\r\n";
+                String row = "WaehrungsLangname: " + cs.getLangName()
+                        + "; WaehrungsKurzname: " + cs.getKurzName()
+                        + "; Umrechnungskurs zu US-Dollar: "
+                        + Double.toString(cs.getUmrechKurs())
+                        + ";\r\n";
                 System.out.print(row);
 
             }

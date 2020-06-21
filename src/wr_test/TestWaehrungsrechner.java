@@ -10,7 +10,7 @@ public class TestWaehrungsrechner {
 
 	public static void main(String args[]) {
 
-            //Waehrungsrechner rechner 
+        /*    //Waehrungsrechner rechner
               //= new Waehrungsrechner("europaeischer Euro", "US-Dollar", 1.0);
                 WInterface wI 
                  = new Waehrungsrechner("europaeischer Euro", "US-Dollar", 1.0);
@@ -79,7 +79,7 @@ public class TestWaehrungsrechner {
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -137);
 
-		testHtml();
+		testHtml(); */
 		testWaehrgDBConnection();
 	}
 
@@ -149,6 +149,8 @@ public class TestWaehrungsrechner {
 		wDBR.closeConnection();
 		wDBR.reConnect();
 
+		System.out.println("Get currencies from DB!!! \r\n");
+		wDBR.getCurrenciesStandardizedFromDB();
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");
 	}
