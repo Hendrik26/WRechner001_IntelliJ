@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
+import java.text.DecimalFormat;
 
 public class WaehrgDBReader {
     private Connection connMaria = null;
@@ -31,6 +32,7 @@ public class WaehrgDBReader {
 
             //STEP 5: Extract data from result set
             while(rs.next()){
+                DecimalFormat df = new DecimalFormat("0.00##");
                 //Retrieve by column name
                 CurrencyStandardized cs = new CurrencyStandardized(
                         rs.getString("Kurzname"),
@@ -47,7 +49,7 @@ public class WaehrgDBReader {
                 String row = "WaehrungsLangname: " + cs.getLangName()
                         + "; WaehrungsKurzname: " + cs.getKurzName()
                         + "; Umrechnungskurs zu US-Dollar: "
-                        + Double.toString(cs.getUmrechKurs())
+                        + df.format(cs.getUmrechKurs())
                         + ";\r\n";
                 System.out.print(row);
 
