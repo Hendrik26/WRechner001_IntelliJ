@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WaehrgDBReader {
     private Connection connMaria = null;
@@ -18,8 +20,10 @@ public class WaehrgDBReader {
     }
 
     // public /*WaehrgFromDB[]*/ void getFromDB(){
-    public void getCurrenciesStandardizedFromDB(){
+    public ArrayList<CurrencyStandardized> getCurrenciesStandardizedFromDB()
+    throws Exception {
         Statement stmt = null;
+        ArrayList<CurrencyStandardized> waehrungsArrayList = new ArrayList<CurrencyStandardized>();
         try{
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
@@ -46,15 +50,22 @@ public class WaehrgDBReader {
                         + df.format(cs.getUmrechKurs())
                         + ";\r\n";
                 System.out.print(row);
-
+                waehrungsArrayList.add(cs);
+                System.out.print("Currency added to List!!!\r\n");
             }
             //STEP 6: Clean-up environment
             rs.close();
             stmt.close();
-        }catch(SQLException se){
-            se.printStackTrace();
+            // return waehrungsArrayList;
+        // }catch(SQLException se){
+            // waehrungsArrayList = null;
+            // se.printStackTrace();
         }catch(Exception e){
+            waehrungsArrayList = null;
+            infoBox("Exception getting currencies from MariaDB!",
+                    exceptionText(e));
             e.printStackTrace();
+            throw e;
         }finally{
             //finally block used to close resources
             try{
@@ -66,6 +77,7 @@ public class WaehrgDBReader {
             //end finally try
         }//end try
         System.out.println("Goodbye!!!!!!!!!!!!");
+        return waehrungsArrayList;
     }
 
     private void firstConnect() {

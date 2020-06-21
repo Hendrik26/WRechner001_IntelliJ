@@ -80,7 +80,7 @@ public class TestWaehrungsrechner {
 
 
 	public static void main(String args[]) {
-		calculatingTest();
+		// calculatingTest();
 		// testHtml();
 		testWaehrgDBConnection();
 	}
@@ -152,7 +152,12 @@ public class TestWaehrungsrechner {
 		wDBR.reConnect();
 
 		System.out.println("Get currencies from DB!!! \r\n");
-		wDBR.getCurrenciesStandardizedFromDB();
+		try {
+			wDBR.getCurrenciesStandardizedFromDB();
+		} catch (Exception e) {
+			System.out.println("\"\\033[31;1;4mExceotion getting "
+					+ "currencies from MariaDB. \\033[0m\"");
+		}
 		System.out.println("End Test WaehrgDBConnection!!! \r\n");
 		System.out.println("// -------------------------------------------------------- \r\n\r\n");
 	}
