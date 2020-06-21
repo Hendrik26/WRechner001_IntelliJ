@@ -8,12 +8,6 @@ import javax.swing.*;
 
 public class TestWaehrungsrechner {
 
-	public static void main(String args[]) {
-		calculatingTest();
-		// testHtml();
-		testWaehrgDBConnection();
-	}
-
 	private static void calculatingTest() {
 		WInterface wI
 				= new Waehrungsrechner("europaeischer Euro",
@@ -82,6 +76,13 @@ public class TestWaehrungsrechner {
 		wI.umrechnen();
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -137);
+	}
+
+
+	public static void main(String args[]) {
+		calculatingTest();
+		// testHtml();
+		testWaehrgDBConnection();
 	}
 
 	private static void angenommeneGleich(double a, double b) {
