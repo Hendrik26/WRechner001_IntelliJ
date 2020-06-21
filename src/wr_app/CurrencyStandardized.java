@@ -1,14 +1,10 @@
 package wr_app; ///
 
 class CurrencyStandardized {
- /* public static void main(String[] args){
-    //System.out.println("Hello World");
-       };*/
 
     private String kurzName = "";
     private String langName = "";
     private double umrechKurs = 1.0; //Ein $kurzName$ sind  $umrechKurs$ US-Dollar
-
 
     private String intToStr(int myInt){//konveretiert Integer in Strings
       return Integer.toString(myInt);
@@ -20,9 +16,6 @@ class CurrencyStandardized {
         this.umrechKurs = myUmrechKurs;
         System.out.println("Neue Waehrung erzeugt! ");
       }
-
-
-    //private Button button1;//Hier definieren //Syntax-Bsp
 
     public String getKurzName(){
         return kurzName;

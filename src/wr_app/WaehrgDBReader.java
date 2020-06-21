@@ -39,13 +39,7 @@ public class WaehrgDBReader {
                         rs.getString("Langname"),
                         rs.getDouble("Umrechnungskurs")
                 );
-                //// ------------------
-                // int id  = rs.getInt("id");
-                // String waehrgsName = rs.getString("Waehrgs_Name");
 
-                //Display values
-                // String row = "ID: " + id + "; WaehrungsName: "
-                        // + waehrgsName + ";\r\n";
                 String row = "WaehrungsLangname: " + cs.getLangName()
                         + "; WaehrungsKurzname: " + cs.getKurzName()
                         + "; Umrechnungskurs zu US-Dollar: "
