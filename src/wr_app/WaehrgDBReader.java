@@ -57,15 +57,20 @@ public class WaehrgDBReader {
             rs.close();
             stmt.close();
             // return waehrungsArrayList;
-        // }catch(SQLException se){
-            // waehrungsArrayList = null;
-            // se.printStackTrace();
+        }catch(SQLException se){
+            waehrungsArrayList = null;
+            String msg = "SQL-Exception getting currencies from MariaDB!";
+            infoBox(msg,
+                    exceptionText(se));
+            se.printStackTrace();
+            throw new Exception(msg);
         }catch(Exception e){
             waehrungsArrayList = null;
-            infoBox("Exception getting currencies from MariaDB!",
+            String msg = "Exception getting currencies from MariaDB!";
+            infoBox(msg,
                     exceptionText(e));
             e.printStackTrace();
-            throw e;
+            throw new Exception(msg);
         }finally{
             //finally block used to close resources
             try{
