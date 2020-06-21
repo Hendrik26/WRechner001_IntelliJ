@@ -9,11 +9,15 @@ import javax.swing.*;
 public class TestWaehrungsrechner {
 
 	public static void main(String args[]) {
+		calculatingTest();
+		// testHtml();
+		testWaehrgDBConnection();
+	}
 
-        /*    //Waehrungsrechner rechner
-              //= new Waehrungsrechner("europaeischer Euro", "US-Dollar", 1.0);
-                WInterface wI 
-                 = new Waehrungsrechner("europaeischer Euro", "US-Dollar", 1.0);
+	private static void calculatingTest() {
+		WInterface wI
+				= new Waehrungsrechner("europaeischer Euro",
+				"US-Dollar", 1.0);
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), 1.09);
 
@@ -60,27 +64,24 @@ public class TestWaehrungsrechner {
 		wI.umrechnen();
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -35.0);
-		
+
 		System.out.println("");
 		System.out.println("Betrag negativ: zus�tzlicher Fehler moeglich");
 		wI.setWaehrung1(1);//europaeischer Euro
 		wI.setWaehrung2(0);//US-Dollar
-                wI.setBetrag(-100);
+		wI.setBetrag(-100);
 		wI.umrechnen();
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -109.825);
-                
-                System.out.println("");
+
+		System.out.println("");
 		System.out.println("Umrechng Europaeischer Euron in Griechischer Euro: Vorzeichenwechsel!!!");
 		wI.setWaehrung1(1);//europaeischer Euro
 		wI.setWaehrung2(2);//griechischer Euro
-                wI.setBetrag(137);
+		wI.setBetrag(137);
 		wI.umrechnen();
 		wI.anzeige();
 		angenommeneGleich(wI.getBetragUmgerechnet(), -137);
-
-		testHtml(); */
-		testWaehrgDBConnection();
 	}
 
 	private static void angenommeneGleich(double a, double b) {
