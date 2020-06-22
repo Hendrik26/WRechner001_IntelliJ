@@ -56,12 +56,10 @@ public class FxWaehrungsrechner extends Application {
 
 /////////////////////////////////////////////////////////////////////////////		
         ComboBox<String> comboBox1 = new ComboBox<>();
-        // comboBox1.setValue("europaeischer Euro");
         comboBox1.setItems(options);
         comboBox1.setValue(comboBox1.getItems().get(0));
 
         ComboBox<String> comboBox2 = new ComboBox<>();
-        // comboBox2.setValue("europaeischer Euro");
         comboBox2.setItems(options);
         comboBox2.setValue(comboBox2.getItems().get(0));
 
