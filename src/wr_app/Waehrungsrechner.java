@@ -12,7 +12,9 @@ public class Waehrungsrechner implements WInterface {
     double betrag;
     double betragUmgerechnet;
     FxWaehrungsrechner fx;
-    List<CurrencyStandardized> waehrungsArrayList = new ArrayList<CurrencyStandardized>();
+    List<CurrencyStandardized> waehrungsArrayList
+            = new ArrayList<CurrencyStandardized>();
+    WaehrgDBReader waehrgDBReader;
 
 /////////////////////////////////////////////////////////////////////////////
 //Konstruktoren
@@ -21,9 +23,11 @@ public class Waehrungsrechner implements WInterface {
         //this.waehrung2 = "usD";
         this.betrag = 0.0;
         this.fx = fx;
+        waehrgDBReader = new WaehrgDBReader();
         //Lesen der Standardwaehrungen aus Datei  
         // oder Setzen der Standardwaehrungen falls das Lesen erfolglos ist
-        if (!readWaehrgList())  setWaehrgList(); 
+        // if (!readWaehrgList())  setWaehrgList();
+        if (!readWaehrgListFromMariaDb())  setWaehrgList();
         umrechnen();
         anzeige();
     }
@@ -31,10 +35,12 @@ public class Waehrungsrechner implements WInterface {
     	public Waehrungsrechner(String waehrung1, String waehrung2, double betrag) {
 	      ////
               this.betrag = betrag;
+            waehrgDBReader = new WaehrgDBReader();
              //this.fx = fx;
              //Lesen der Standardwaehrungen aus Datei  
             // oder Setzen der Standardwaehrungen falls das Lesen erfolglos ist
-            if (!readWaehrgList())  setWaehrgList(); 
+            // if (!readWaehrgList())  setWaehrgList();
+            if (!readWaehrgListFromMariaDb())  setWaehrgList();
             umrechnen();
             anzeige();
             
@@ -129,6 +135,17 @@ public class Waehrungsrechner implements WInterface {
             }
         }
         return fileLesenOk;
+    }
+
+    public boolean readWaehrgListFromMariaDb() {
+        //Lesen der Standardwaehrungen aus MariaDB
+        try {
+            waehrungsArrayList = waehrgDBReader.getCurrenciesStandardizedFromDB();
+            return true;
+        } catch (Exception e) {
+            waehrungsArrayList = null;
+            return false;
+        }
     }
 
     public void setUmrechkursInList(int myPos, double myUmrechKurs) {
