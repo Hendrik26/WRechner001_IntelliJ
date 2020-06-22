@@ -28,6 +28,7 @@ public class Waehrungsrechner implements WInterface {
         // oder Setzen der Standardwaehrungen falls das Lesen erfolglos ist
         // if (!readWaehrgList())  setWaehrgList();
         if (!readWaehrgListFromMariaDb())  setWaehrgList();
+        // setWaehrgList();
         umrechnen();
         anzeige();
     }
