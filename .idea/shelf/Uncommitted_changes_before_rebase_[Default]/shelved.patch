@@ -1,0 +1,13 @@
+Index: src/wr_app/FxWaehrungsrechner.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/wr_app/FxWaehrungsrechner.java	(revision 39a3e13865da7fe65a31e713bc9b15a0c12f3cd5)
++++ src/wr_app/FxWaehrungsrechner.java	(date 1600010316992)
+@@ -1,4 +1,4 @@
+-package wr_app; ///
++package wr_app; ////////
+ 
+ import javafx.application.Application;
+ import javafx.collections.FXCollections;

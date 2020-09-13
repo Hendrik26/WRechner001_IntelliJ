@@ -1,9 +1,12 @@
-US-Dollar; USD; 1.0
-polnischer Zloty; plZ; 0.25
-tschechische Krone; czK; 0.20000000298023224
 Europäischer Euro; euEu; 0.5
+Goerlitzer Schilling; GoS; 0.532800018787384
 Griechischer Euro; grEu; -0.5
-lesbische Drachme; lsbD; -1.0
-kanadischer Dollar; kaD; 3.4000000953674316
-ungarischer Forint; ugF; 0.7450000047683716
 irakischer Dinar; irD; 0.12300000339746475
+kanadischer Dollar; kaD; 3.4000000953674316
+lesbische Drachme; lsbD; -1.0
+Oberlausitzer Taler; OLT; 2.8661999702453613
+Saechsischer Taler; SaT; 0.6000000238418579
+tschechische Krone; czK; 0.20000000298023224
+ungarischer Forint; ugF; 0.7450000047683716
+US-Dollar; USD; 1.0
+Zittauer Mark; ZiM; 0.800000011920929
