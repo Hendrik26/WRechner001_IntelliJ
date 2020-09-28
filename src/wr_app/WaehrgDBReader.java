@@ -83,7 +83,7 @@ public class WaehrgDBReader {
         }//end try
         System.out.println("Goodbye!!!!!!!!!!!!");
         return waehrungsArrayList;
-    }
+    }//end method
 
     private void firstConnect() {
         try {
