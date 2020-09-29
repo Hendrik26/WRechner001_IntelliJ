@@ -16,7 +16,7 @@ import java.text.DecimalFormat;
 public class FxWaehrungsrechner extends Application {
 
     TextField eingabe, ausgabe, kursAendern, neuWLangName, neuWKurzName,
-            neuWKurs;
+            neuWBasisKurz, neuWKurs;
     String cBox1Value, cBox2Value, cBox3Value;
 
     public static void main(String[] args) {
@@ -26,6 +26,7 @@ public class FxWaehrungsrechner extends Application {
     public void start(Stage primaryStage) {
 
         WInterface wI = new Waehrungsrechner(this);
+        System.out.println("WInterface wI created!!!");
         //Waehrungsrechner rechner = new Waehrungsrechner(this);
 
 		///////////////////////////////////////////////////////////////////
@@ -120,8 +121,10 @@ public class FxWaehrungsrechner extends Application {
         //tab.setContent(new Rectangle(200,200, Color.LIGHTSTEELBLUE));
         Label neuWaehrgLangName = new Label("Neue Waehrung: LangName");
         Label neuWaehrgKurzName = new Label("Neue Waehrung: KurzName");
+        Label neuWaehrgBasisKurz = new Label("Neue Waehrung: BasisKurzName");
         Label neuWaehrgKurs
-                = new Label("Neue Waehrung: Wechselkurs zu US-Dollar");
+                = new Label("Neue Waehrung: Wechselkurs zu Basiswaehrung");
+
 
         GridPane gridPane03 = new GridPane();
         gridPane03.setAlignment(Pos.CENTER);
@@ -129,7 +132,9 @@ public class FxWaehrungsrechner extends Application {
         gridPane03.setVgap(15);
         gridPane03.add(neuWaehrgLangName, 0, 0);
         gridPane03.add(neuWaehrgKurzName, 1, 0);
-        gridPane03.add(neuWaehrgKurs, 2, 0);
+        gridPane03.add(neuWaehrgBasisKurz, 2, 0);
+        gridPane03.add(neuWaehrgKurs, 3, 0);
+
 
         neuWLangName = new TextField("");
         gridPane03.add(neuWLangName, 0, 6);
@@ -137,8 +142,12 @@ public class FxWaehrungsrechner extends Application {
         neuWKurzName = new TextField("");
         gridPane03.add(neuWKurzName, 1, 6);
 
+
+        neuWBasisKurz = new TextField("");
+        gridPane03.add(neuWBasisKurz, 2, 6);
+
         neuWKurs = new TextField("");
-        gridPane03.add(neuWKurs, 2, 6);
+        gridPane03.add(neuWKurs, 3, 6);
 
         Button buttonNeu = new Button("Bestaetigen");
         gridPane03.add(buttonNeu, 0, 9);
@@ -213,8 +222,16 @@ public class FxWaehrungsrechner extends Application {
         buttonNeu.setOnAction((event) -> {
             String waehrungNeuTxt = neuWLangName.getText();
             String waehrungNeuKurzTxt = neuWKurzName.getText();
+            String waehrungNeuBasisKurz = neuWBasisKurz.getText();
             String kursNeuTxt = neuWKurs.getText();
             Double kursNeuDbl = Double.parseDouble(kursNeuTxt);
+
+            /*
+            CurrencyLikeDB currencyLikeDB = new CurrencyLikeDB(waehrungNeuKurzTxt, waehrungNeuTxt,
+                    waehrungNeuBasisKurz, kursNeuDbl);
+            wI.insertCurrencyLikeDBToMariaDb(currencyLikeDB);*/
+
+
             wI.addWaehrgToList(waehrungNeuKurzTxt,waehrungNeuTxt, kursNeuDbl);
             options.add(waehrungNeuTxt);
             //options.clear();

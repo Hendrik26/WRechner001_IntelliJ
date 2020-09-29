@@ -25,5 +25,6 @@ public interface WInterface {
   public void setBetrag(double myBetrag);
   public double getBetrag();
   public double getBetragUmgerechnet();
+  public boolean insertCurrencyLikeDBToMariaDb(CurrencyLikeDB currency);
     
 }

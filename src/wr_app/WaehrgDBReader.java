@@ -85,6 +85,37 @@ public class WaehrgDBReader {
         return waehrungsArrayList;
     }//end method
 
+    public void insertCurrencyToDB(CurrencyLikeDB currency)
+            throws Exception {
+        Statement stmt = null;
+
+        try {
+            // String sql = "CALL p_insert_currency002('Warschauer Taler', 'WaT', 'PLZ', 0.888);";
+            String sqlForm = "CALL p_insert_currency002('%s', '%s', '%s', %f);";
+            String sql = String.format(sqlForm, currency.getLangName(), currency.getKurzName(),
+                    currency.getBasisWKurzName(), currency.getUmrechKursuBasisW());
+            System.out.println("//////////////////////////////////////////////////////////");
+            System.out.println("//////////////////////////////////////////////////////////");
+            System.out.println("//////////////////////////////////////////////////////////");
+            System.out.println(sql);
+            System.out.println("//////////////////////////////////////////////////////////");
+            System.out.println("//////////////////////////////////////////////////////////");
+            System.out.println("//////////////////////////////////////////////////////////");
+        } catch(Exception e){
+
+        } finally{
+            //finally block used to close resources
+            try{
+                if(stmt!=null)
+                    stmt.close();
+            }catch(SQLException se2){
+                se2.printStackTrace();
+            }
+            //end finally try
+        }//end try
+        System.out.println("Goodbye, inserting currency!!!");
+    }
+
     private void firstConnect() {
         try {
             //STEP 3Maria: Open a connection

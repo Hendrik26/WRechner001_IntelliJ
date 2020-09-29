@@ -15,14 +15,19 @@ public class CurrencyLikeDB {
         return Integer.toString(myInt);
     }
 
+    CurrencyLikeDB(String myKurzName, String myLangName, String basisWKurzName,
+                    double umrechKursZuBasisW){
+        this.setNames(myKurzName, myLangName, basisWKurzName, "");
+        this.setUmrechKurse(0.0, umrechKursZuBasisW);
+        System.out.println("Neue Waehrung_DB erzeugt! ");
+    }
+
     CurrencyLikeDB(String myKurzName, String myLangName, String basisWKurzName, String basisWLangName,
                    double myUmrechKursZuUSD, double umrechKursZuBasisW){
         this.setNames(myKurzName, myLangName, basisWKurzName, basisWLangName);
         this.setUmrechKurse(myUmrechKursZuUSD, umrechKursZuBasisW);
         System.out.println("Neue Waehrung_DB erzeugt! ");
     }
-
-
 
     private void setUmrechKurse(double myUmrechKursZuUSD, double umrechKursZuBasisW) {
         this.umrechKursZuUSD = myUmrechKursZuUSD;

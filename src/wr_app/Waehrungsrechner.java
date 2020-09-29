@@ -139,12 +139,22 @@ public class Waehrungsrechner implements WInterface {
     }
 
     public boolean readWaehrgListFromMariaDb() {
-        //Lesen der Standardwaehrungen aus MariaDB
+        //Schreiben einer unstandardisierten (DB-aehnlichen) Waehrung nach MariaDB
         try {
             waehrungsArrayList = waehrgDBReader.getCurrenciesStandardizedFromDB();
             return true;
         } catch (Exception e) {
             waehrungsArrayList = null;
+            return false;
+        }
+    }
+
+    public boolean insertCurrencyLikeDBToMariaDb(CurrencyLikeDB currency) {
+        //Lesen der Standardwaehrungen aus MariaDB
+        try {
+            waehrgDBReader.insertCurrencyToDB(currency);
+            return true;
+        } catch (Exception e) {
             return false;
         }
     }
