@@ -19,6 +19,12 @@ public class WaehrgDBReader {
         // }
     }
 
+    public static String format(double i) {
+        DecimalFormat f = new DecimalFormat("#0.00");
+        double toFormat = ((double) Math.round(i * 100)) / 100;
+        return f.format(toFormat).replace(',', '.');
+    }
+
     // public /*WaehrgFromDB[]*/ void getFromDB(){
     public ArrayList<CurrencyStandardized> getCurrenciesStandardizedFromDB()
     throws Exception {
@@ -91,9 +97,10 @@ public class WaehrgDBReader {
 
         try {
             // String sql = "CALL p_insert_currency002('Warschauer Taler', 'WaT', 'PLZ', 0.888);";
-            String sqlForm = "CALL p_insert_currency002('%s', '%s', '%s', %f);";
+            String sqlForm = "CALL p_insert_currency002('%s', '%s', '%s', %s);";
+            String umrechStr = format(currency.getUmrechKursuBasisW());
             String sql = String.format(sqlForm, currency.getLangName(), currency.getKurzName(),
-                    currency.getBasisWKurzName(), currency.getUmrechKursuBasisW());
+                    currency.getBasisWKurzName(), umrechStr );
             System.out.println("//////////////////////////////////////////////////////////");
             System.out.println("//////////////////////////////////////////////////////////");
             System.out.println("//////////////////////////////////////////////////////////");
@@ -101,8 +108,13 @@ public class WaehrgDBReader {
             System.out.println("//////////////////////////////////////////////////////////");
             System.out.println("//////////////////////////////////////////////////////////");
             System.out.println("//////////////////////////////////////////////////////////");
-        } catch(Exception e){
 
+            stmt = this.connMaria.createStatement();
+            // ResultSet rs = stmt.executeQuery(sql);
+            // stmt.executeQuery(sql);
+            System.out.println("Currency written to MariaDB");
+        } catch(Exception e){
+            System.out.println("Exception writing Currency to MariaDB");
         } finally{
             //finally block used to close resources
             try{

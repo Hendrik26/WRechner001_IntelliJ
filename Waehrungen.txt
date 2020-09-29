@@ -3,6 +3,7 @@ Goerlitzer Schilling; GoS; 0.532800018787384
 Griechischer Euro; grEu; -0.5
 irakischer Dinar; irD; 0.12300000339746475
 kanadischer Dollar; kaD; 3.4000000953674316
+Kartoffeln; Krt; 2.22990345954895
 lesbische Drachme; lsbD; -1.0
 Oberlausitzer Taler; OLT; 2.8661999702453613
 Saechsischer Taler; SaT; 0.6000000238418579
@@ -10,4 +11,4 @@ tschechische Krone; czK; 0.20000000298023224
 ungarischer Forint; ugF; 0.7450000047683716
 US-Dollar; USD; 1.0
 Zittauer Mark; ZiM; 0.800000011920929
-Gummibaeren; GBR; 1.234
+Gummibaeren; Gbr; 1.234
