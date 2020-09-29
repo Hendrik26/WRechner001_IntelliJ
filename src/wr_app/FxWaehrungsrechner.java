@@ -220,16 +220,18 @@ public class FxWaehrungsrechner extends Application {
         });
         
         buttonNeu.setOnAction((event) -> {
+            System.out.println("buttonNeu: Bestaetigen PRESSED");
+
             String waehrungNeuTxt = neuWLangName.getText();
             String waehrungNeuKurzTxt = neuWKurzName.getText();
             String waehrungNeuBasisKurz = neuWBasisKurz.getText();
             String kursNeuTxt = neuWKurs.getText();
             Double kursNeuDbl = Double.parseDouble(kursNeuTxt);
 
-            /*
+
             CurrencyLikeDB currencyLikeDB = new CurrencyLikeDB(waehrungNeuKurzTxt, waehrungNeuTxt,
                     waehrungNeuBasisKurz, kursNeuDbl);
-            wI.insertCurrencyLikeDBToMariaDb(currencyLikeDB);*/
+            wI.insertCurrencyLikeDBToMariaDb(currencyLikeDB);
 
 
             wI.addWaehrgToList(waehrungNeuKurzTxt,waehrungNeuTxt, kursNeuDbl);
