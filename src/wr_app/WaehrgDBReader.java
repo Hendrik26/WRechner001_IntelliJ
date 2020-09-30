@@ -111,7 +111,7 @@ public class WaehrgDBReader {
 
             stmt = this.connMaria.createStatement();
             // ResultSet rs = stmt.executeQuery(sql);
-            // stmt.executeQuery(sql);
+            stmt.executeQuery(sql);
             System.out.println("Currency written to MariaDB");
         } catch(Exception e){
             System.out.println("Exception writing Currency to MariaDB");
